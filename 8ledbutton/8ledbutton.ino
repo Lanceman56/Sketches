@@ -29,11 +29,6 @@ void KnightRider(){
 			delay(100);
 			continue;
 		}
-		// if (offLed <=0){
-		// 	offLed = 1;
-		// 	digitalWrite(ledPins[offLed], LOW);
-		// 	//continue;
-		// }
 	}
 	for(int i = 7; i >= 0; i--){
 		int onLed = i;
@@ -44,5 +39,6 @@ void KnightRider(){
 		}
 		delay(100);
 	}
+	digitalWrite(ledPins[0], LOW);
 	
 }

@@ -16,6 +16,8 @@ void loop() {
 	button = digitalRead(inPin);
 	if (button == HIGH){
 		KnightRider();
+	} else {
+		inAndOut();
 	}
 }
 
@@ -41,4 +43,42 @@ void KnightRider(){
 	}
 	digitalWrite(ledPins[0], LOW);
 	
+}
+
+void inAndOut(){
+	int delayTime = 100;
+	for(int i = 0; i <=3; i++){
+		int offLed = i - 1;
+		if(i == 0) {
+			offLed = 3;
+		}
+		int onLED1 = 3 - i;
+		int onLED2 = 4 + i;
+		int offLed1 = 3 - offLed;
+		int offLed2 = 4 + offLed;
+		digitalWrite(ledPins[onLED1], HIGH);
+		digitalWrite(ledPins[onLED2], HIGH);
+		digitalWrite(ledPins[offLed1], LOW);
+		digitalWrite(ledPins[offLed2], LOW);
+		delay(delayTime);
+	}
+
+	for(int i = 3; i>=0; i--){
+		int offLed = i + 1;
+		if(i == 3) {
+			offLed = 0;
+		}
+		int onLED1 = 3 - i;
+		int onLED2 = 4 + i;
+		int offLed1 = 3 - offLed;
+		int offLed2 = 4 + offLed;
+		digitalWrite(ledPins[onLED1], HIGH);
+		digitalWrite(ledPins[onLED2], HIGH);
+		digitalWrite(ledPins[offLed1], LOW);
+		digitalWrite(ledPins[offLed2], LOW);
+		delay(delayTime);
+	}
+
+	digitalWrite(ledPins[3], LOW);
+	digitalWrite(ledPins[4], LOW);
 }
